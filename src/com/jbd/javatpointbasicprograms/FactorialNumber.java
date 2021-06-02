@@ -6,17 +6,27 @@ public class FactorialNumber {
 
 	public static void main(String[] args) {
 
-		int number, fact = 1;
+		int number;
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter a number : ");
+		System.out.print("Enter a number whose factorial is to be calculated : ");
 		number = input.nextInt();
-		System.out.print("Factorial of " + number + " is : ");
+		input.close();
+		factorial(number);
+	}
+
+	private static void factorial(int number) {
+
+		int fact = 1, temp;
+		temp = number;
+
 		while (number != 0) {
 
 			fact = fact * number;
 			number--;
 		}
-		input.close();
-		System.out.print(fact);
+
+		number = temp;
+
+		System.out.println("Factorial of the number " + number + " is : " + fact);
 	}
 }

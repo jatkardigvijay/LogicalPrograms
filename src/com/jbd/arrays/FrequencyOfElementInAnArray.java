@@ -1,12 +1,15 @@
 package com.jbd.arrays;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FrequencyOfElementInAnArray {
 
 	public static void main(String[] args) {
 
-		int number, visited = -1;
+		// 2 3 5 2 3 2 4 5 4
+
+		int number;
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter number of elements you want to enter in an array : ");
 		number = input.nextInt();
@@ -19,34 +22,40 @@ public class FrequencyOfElementInAnArray {
 		for (int i : elements) {
 			System.out.print(i + " ");
 		}
-		for (int i = 0; i < elements.length; i++) {
+		System.out.println();
+		input.close();
+		int n = elements.length;
+		countFreq(elements, n);
 
+	}
+
+	private static void countFreq(int[] elements, int n) {
+
+		boolean[] visited = new boolean[n];
+
+		Arrays.fill(visited, false);
+
+		// Traverse through array elements and
+		// count frequencies
+		for (int i = 0; i < n; i++) {
+
+			// Skip this element if already processed
+			if (visited[i] == true) {
+
+				continue;
+			}
+
+			// Count frequency
 			int count = 1;
-
-			for (int j = i + 1; j < elements.length; j++) {
+			for (int j = i + 1; j < n; j++) {
 
 				if (elements[i] == elements[j]) {
-					count++;
 
-					elements[j] = visited;
+					visited[j] = true;
+					count++;
 				}
 			}
-
-			if (elements[i] != visited) {
-
-				elements[i] = count;
-			}
+			System.out.println(elements[i] + " " + count);
 		}
-		input.close();
-
-		System.out.println();
-		System.out.println("---------------------------------------");
-		System.out.println(" Element | Frequency");
-		System.out.println("---------------------------------------");
-		for (int i = 0; i < elements.length; i++) {
-			if (elements[i] != visited)
-				System.out.println("    " + elements[i+1] + "    |    " + elements[i]);
-		}
-		System.out.println("----------------------------------------");
 	}
 }
