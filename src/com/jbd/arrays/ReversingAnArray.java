@@ -18,6 +18,7 @@ public class ReversingAnArray {
 		for (int i = 0; i < elements; i++) {
 			numberList.add(input.nextInt());
 		}
+		input.close();
 		System.out.println("The numbers you printed are : " + numberList);
 		Collections.reverse(numberList);
 		System.out.println("The reversed array is : " + numberList);
