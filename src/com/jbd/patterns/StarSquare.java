@@ -2,7 +2,7 @@ package com.jbd.patterns;
 
 import java.util.Scanner;
 
-public class NumberSquare {
+public class StarSquare {
 
 	public static void main(String[] args) {
 
